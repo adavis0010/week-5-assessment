@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Back End Assessment</title>
+  </head>
+  <body class="container">
+    <button id="complimentButton">Get a compliment</button>
+    <button id="fortuneButton">Get your fortune</button>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      document.getElementById("complimentButton").onclick = function () {
+        axios.get("http://localhost:4000/api/compliment/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data);
+            });
+      };
+      document.getElementById("fortuneButton").onclick = function () {
+        axios.get("http://localhost:4000/api/fortune/")
+        .then(function (response) {
+          const data = respose.data;
+          alert(data);
+        });
+      };
+    </script>
+    <form id= secret>
+      <h2>Tell Me a Secret</h2>
+      <input type="textarea"
+             id= 'secretInput'
+             placeholder= 'Secret Here'>
+      <input type="submit">
+      <script> 
+       function handleSubmit(evt) {
+         evt.preventDefault();
+         alert("I won't tell anyone")
+       }
+      </script>
+    </form>
+
+    <form id= smile>
+      <h2>Reasons to Smile</h2>
+      <button id="smileButton">:)</button>
+      <script>
+        //Not sure if I need something here for the front end? The button isn't working but I have the event listener and everything on the index.js
+      </script>
+    </form>
+
+
+    <form id='guestbook'>
+      <h3>Sign the Guestbook</h3>
+      <input
+        type='text'
+        id= 'name'
+        placeholder= 'Name'/>
+      <input
+      type= 'text'
+      id= 'email'
+      placeholder= 'Email'/>
+      <button id= "gstbkSubmit">Submit
+      </button>
+    </form>
+
+  </body>
+</html>
